@@ -4,7 +4,7 @@ exports.main = {
   port: 8333,
   rpc: 8332,
   minVersion: 70001,
-  version: : 70002
+  version: 70002
 }
 
 exports.test = {
