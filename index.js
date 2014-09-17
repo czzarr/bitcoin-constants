@@ -12,7 +12,7 @@ exports.test = {
   port: 18333,
   rpc: 18332,
   minversion: 70001,
-  version: : 70002
+  version: 70002
 }
 
 exports.opcodes = {
