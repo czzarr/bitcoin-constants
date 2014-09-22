@@ -1,4 +1,3 @@
-
 exports.main = {
   magic: 0xd9b4bef9,
   port: 8333,
@@ -13,6 +12,12 @@ exports.test = {
   rpc: 18332,
   minversion: 70001,
   version: 70002
+}
+
+exports.objecttype = {
+  ERROR: 0, // Any data of with this number may be ignored
+  MSG_TX: 1, // Hash is related to a transaction
+  MSG_BLOCK: 2 // Hash is related to a data block
 }
 
 exports.opcodes = {
