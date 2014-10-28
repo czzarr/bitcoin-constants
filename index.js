@@ -1,26 +1,58 @@
-exports.main = {
-  magic: 0xd9b4bef9,
-  port: 8333,
-  rpc: 8332,
-  minVersion: 70001,
-  version: 70002
+var extend = require('xtend')
+
+module.exports = function (network) {
+  return extend(constants, networks[network])
 }
 
-exports.test = {
-  magic: 0x0709110b,
-  port: 18333,
-  rpc: 18332,
-  minversion: 70001,
-  version: 70002
+var constants = {}
+
+var networks = {
+  mainnet : {
+    magic: 0xd9b4bef9,
+    port: 8333,
+    rpc: 8332,
+    wif: {
+      pub: 0x00,
+      prv: 0x80
+    }
+  },
+  testnet3 : {
+    magic: 0x0709110b,
+    port: 18333,
+    rpc: 18332,
+    wif: {
+      pub: 0x6f,
+      prv: 0x6e
+    }
+  }
 }
 
-exports.objecttype = {
-  ERROR: 0, // Any data of with this number may be ignored
-  MSG_TX: 1, // Hash is related to a transaction
-  MSG_BLOCK: 2 // Hash is related to a data block
+constants.minVersion = 70001
+constants.version = 70002
+
+constants.inv = {
+    error: 0,
+    tx: 1,
+    block: 2,
+    filtered: 3
 }
 
-exports.opcodes = {
+constants.invByVal = {
+    0: 'error',
+    1: 'tx',
+    2: 'block',
+    3: 'filtered'
+}
+
+// Little-endian hash type
+constants.hashType = {
+    all: 1,
+    none: 2,
+    single: 3,
+    anyonecaypay: 0x80
+}
+
+constants.opcodes = {
   OP_0: 0,
   OP_PUSHDATA1: 0x4c,
   OP_PUSHDATA2: 0x4d,
@@ -120,10 +152,10 @@ exports.opcodes = {
 }
 
 for (var i = 1; i <= 16; i++) {
-  exports.opcodes[i] = 0x50 + i
+  constants.opcodes[i] = 0x50 + i
 }
 
-exports.opcodesByVal = new Array(256);
-Object.keys(exports.opcodes).forEach(function(name) {
-  exports.opcodesByVal[exports.opcodes[name]] = name;
+constants.opcodesByVal = new Array(256);
+Object.keys(constants.opcodes).forEach(function(name) {
+  constants.opcodesByVal[constants.opcodes[name]] = name;
 });
