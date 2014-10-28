@@ -44,6 +44,11 @@ constants.invByVal = {
     3: 'filtered'
 }
 
+// version - services field
+constants.services = {
+  network: 1
+}
+
 // Little-endian hash type
 constants.hashType = {
     all: 1,
