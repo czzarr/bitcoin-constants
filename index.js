@@ -27,6 +27,12 @@ var networks = {
   }
 }
 
+constants.block = {
+  maxSize: 1000000,
+  maxSigops: 1000000 / 50,
+  maxOrphanTx: 1000000 / 100
+}
+
 constants.minVersion = 70001
 constants.version = 70002
 
