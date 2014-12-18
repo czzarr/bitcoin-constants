@@ -13,7 +13,8 @@ var networks = {
     rpc: 8332,
     wif: {
       pub: 0x00,
-      prv: 0x80
+      prv: 0x80,
+      scripthash: 0x05
     }
   },
   testnet3 : {
@@ -22,7 +23,8 @@ var networks = {
     rpc: 18332,
     wif: {
       pub: 0x6f,
-      prv: 0x6e
+      prv: 0x6e,
+      scripthash: 0xc4
     }
   }
 }
